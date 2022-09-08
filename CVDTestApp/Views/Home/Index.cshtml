@@ -1,0 +1,43 @@
+﻿@model HomeViewModel
+
+<h1>Сотрудники:</h1>
+<table>
+    <tr><th>ID</th><th>Department_id</th><th>Chief_id</th><th>Name</th><th>Salary</th></tr>
+    @{
+        foreach (Employee employee in Model.Employees)
+        {
+            @Html.Partial("AllEmployees", employee)
+        }
+    }
+</table>
+<hr>
+<h1>Task1</h1>
+<h2>Задание:</h2>
+<div>
+    Суммарная зарплата в разрезе департаментов (без руководителей и с руководителями)
+</div>
+<h2>Решение:</h2>
+<div>
+    <p>@Model.SalaryWithoutManagers</p>
+    <p>@Model.SalaryWithManagers</p>
+</div>
+<hr>
+<h1>Task2</h1>
+<h2>Задание:</h2>
+<div>
+    Департамент, в котором у сотрудника зарплата максимальна
+</div>
+<h2>Решение:</h2>
+<div>
+    @Model.MaxSalaryDepartment
+</div>
+<hr>
+<h1>Task3</h1>
+<h2>Задание:</h2>
+<div>
+    Зарплаты руководителей департаментов (по убыванию)
+</div>
+<h2>Решение:</h2>
+<div>
+    @Model.ManagersSalary
+</div>
